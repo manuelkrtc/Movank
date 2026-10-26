@@ -1,0 +1,41 @@
+
+# Gradle and Kotlin
+.gradle/
+.kotlin/
+**/build/
+
+# Local configuration
+local.properties
+*.iml
+
+# Android Studio
+.idea/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Generated Android files
+*.apk
+*.aab
+*.ap_
+output-metadata.json
+
+# Signing keys
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+
+# Secrets and environment variables
+.env
+.env.*
+!.env.example
+secrets.properties
+
+# Logs and profiling
+*.log
+*.hprof
+
+# macOS
+.DS_Store
