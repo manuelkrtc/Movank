@@ -17,9 +17,6 @@ class ProductRepositoryImpl @Inject constructor(
     private val productDatabase: ProductDatabase,
     private val productDao: ProductDao,
 ) : ProductRepository {
-    override suspend fun getProducts(): List<Product> =
-        apiService.getProducts().products.map { it.toDomain() }
-
     override fun observeProducts(): Flow<List<Product>> =
         productDao.observeProducts().map { entities -> entities.map { it.toDomain() } }
 
