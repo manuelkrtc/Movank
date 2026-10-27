@@ -23,11 +23,12 @@ class ProductRepositoryImpl @Inject constructor(
     override fun observeProducts(): Flow<List<Product>> =
         productDao.observeProducts().map { entities -> entities.map { it.toDomain() } }
 
-    override suspend fun refreshProducts() {
+    override suspend fun refreshProducts(): Int {
         val entities = apiService.getProducts().products.map { it.toEntity() }
         productDatabase.withTransaction {
             productDao.deleteAllProducts()
             productDao.upsertProducts(entities)
         }
+        return entities.size
     }
 }
