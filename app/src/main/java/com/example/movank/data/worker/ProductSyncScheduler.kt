@@ -12,7 +12,7 @@ object ProductSyncScheduler {
     private const val UNIQUE_WORK_NAME = "product_sync"
 
     fun schedule(context: Context) {
-        val request = PeriodicWorkRequestBuilder<ProductSyncWorker>(1, TimeUnit.HOURS)
+        val request = PeriodicWorkRequestBuilder<ProductSyncWorker>(15, TimeUnit.MINUTES)
             .setConstraints(
                 Constraints.Builder()
                     .setRequiredNetworkType(NetworkType.CONNECTED)
